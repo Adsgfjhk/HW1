@@ -1,7 +1,8 @@
 # 41143231
 
 作業一
-##Ackermann’s function – recursive
+
+## Ackermann’s function – recursive
 ## 解題說明
 
 利用題目給的公式，用 if 來判斷當時的情況並作相對應的處理。
