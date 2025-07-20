@@ -18,26 +18,26 @@
 using namespace std;
 long long Ackermann(long long m, long long n)
 {
-if (m == 0)
-return n + 1; //依 Ackermann 函數處理
-else if (m > 0 && n == 0)
-return Ackermann(m - 1, 1); //依 Ackermann 函數處理
-else
-return Ackermann(m - 1, Ackermann(m, n - 1)); //依 Ackermann 函數處理
+	if (m == 0)
+		return n + 1; //依 Ackermann 函數處理
+	else if (m > 0 && n == 0)
+		return Ackermann(m - 1, 1); //依 Ackermann 函數處理
+	else
+		return Ackermann(m - 1, Ackermann(m, n - 1)); //依 Ackermann 函數處理
 }
 int main()
 {
-long long m, n;
-long long a;
-double start, end; //獲取時間用
-double cost;
-start = clock(); //計時開始
-cin >> m >> n;
-a = Ackermann(m, n);
-cout << a << endl;
-end = clock(); //計時結束
-cost = end - start; //計算時間差
-cout << "時間差：" << cost / 1000 << "秒" << endl;
+	long long m, n;
+	long long a;
+	double start, end; //獲取時間用
+	double cost;
+	start = clock(); //計時開始
+	cin >> m >> n;
+	a = Ackermann(m, n);
+	cout << a << endl;
+	end = clock(); //計時結束
+	cost = end - start; //計算時間差
+	cout << "時間差：" << cost / 1000 << "秒" << endl;
 }
 
 ```
@@ -126,39 +126,40 @@ $ ./sigma
 using namespace std;
 int main()
 {
-long long m, n, ans = 0;
-double start, end, cost;
-int x = 2;
-cin >> m >> n;
-start = clock();
-switch (m)//看 m 的不同來對應相對的公式
-{
-case 0:
-n++;
-break;
-case 1:
-n += 2;
-break;
-case 2:
-n = n * 2 + 3;
-break;
-case 3:
-n = pow(2, n + 3) - 3;
-break;
-case 4:
-for (int i = 0; i < n + 2; i++)//m = 4 為 n+3 個 2 的 2 次方
-{
-ans = pow(2, x);
-x = ans;
+	long long m, n, ans = 0;
+	double start, end, cost;
+	int x = 2;
+	cin >> m >> n;
+	start = clock();
+	switch (m)//看 m 的不同來對應相對的公式
+	{
+	case 0:
+		n++;
+		break;
+	case 1:
+		n += 2;
+		break;
+	case 2:
+		n = n * 2 + 3;
+		break;
+	case 3:
+		n = pow(2, n + 3) - 3;
+		break;
+	case 4:
+		for (int i = 0; i < n + 2; i++)//m = 4 為 n+3 個 2 的 2 次方
+		{
+			ans = pow(2, x);
+			x = ans;
+		}
+		n = ans - 3;
+		break;
+	}
+	cout << n << endl;
+	end = clock();
+	cost = end - start;
+	cout << "時間差：" << cost / 1000 << "秒" << endl;
 }
-n = ans - 3;
-break;
-}
-cout << n << endl;
-end = clock();
-cost = end - start;
-cout << "時間差：" << cost/1000 << "秒" << endl;
-}
+
 
 
 ```
@@ -167,10 +168,10 @@ cout << "時間差：" << cost/1000 << "秒" << endl;
 
 1. 時間複雜度：
  ```cpp
-   if( n < 4 )
-9 + 2 = 11
-if( n > = 4 )
-9 + ( n + 3 ) + 2*( n + 2 ) + 2 = 3n + 16
+if (n < 4)
+	9 + 2 = 11
+if (n > = 4)
+	9 + (n + 3) + 2 * (n + 2) + 2 = 3n + 16
    ```
 2. 空間複雜度：8 //m、n、ans、start、end、cost、x、i
 
